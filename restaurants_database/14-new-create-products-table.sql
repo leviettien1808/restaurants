@@ -1,0 +1,10 @@
+-- MySQL
+CREATE TABLE products (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    name VARCHAR(100) NOT NULL,
+    image VARCHAR(255),
+    description TEXT,
+    price DECIMAL(7, 2) NOT NULL CHECK (price >= 0),
+    created_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
