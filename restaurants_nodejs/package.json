@@ -1,0 +1,31 @@
+{
+  "name": "restaurants_nodejs",
+  "version": "1.0.0",
+  "description": "Restaurant management",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --inspect index.js",
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leviettien1808/restaurants.git"
+  },
+  "keywords": [
+    "order",
+    "food"
+  ],
+  "author": "Le Viet Tien",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/leviettien1808/restaurants/issues"
+  },
+  "homepage": "https://github.com/leviettien1808/restaurants#readme",
+  "dependencies": {
+    "mysql2": "^3.15.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.10.1",
+    "nodemon": "^3.1.10"
+  }
+}
