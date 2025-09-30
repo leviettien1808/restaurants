@@ -1,13 +1,13 @@
-const http = require("http");
-const orderController = require("./controllers/order");
+const bodyParser = require("body-parser");
+const express = require("express");
+const morgan = require("morgan");
 
-const server = http.createServer((req, res) => {
-  if (req.url === "/" && req.method === "GET") {
-    console.log(orderController.getIndex(req, res));
-  }
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello, World!\n");
-});
+const adminRoutes = require("./routes/admin");
 
-server.listen(8000);
+const app = express();
+
+app.use(morgan("combined"));
+app.use(bodyParser.urlencoded());
+app.use(adminRoutes);
+
+app.listen(8000);
