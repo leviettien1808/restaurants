@@ -1,0 +1,27 @@
+.form-control {
+  margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: block;
+  width: 100%;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid;
+  font: inherit;
+  border-radius: 2px;
+  box-sizing: border-box;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #215732;
+}
+
+.form-control textarea {
+  resize: vertical;
+}

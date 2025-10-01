@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("includes/head.ejs") %>
+  <body>
+    <%- include("includes/admin-navigation.ejs") %>
+    <main>
+      <form class="product-form" action="/admin/add-product" method="post">
+        <div class="form-control">
+          <label for="title">Tên sản phẩm</label>
+          <input type="text" id="title" name="title" required />
+        </div>
+        <div class="form-control">
+          <label for="price">Giá</label>
+          <input type="number" id="price" name="price" required />
+        </div>
+        <div class="form-control">
+          <label for="description">Mô tả</label>
+          <textarea id="description" name="description" rows="5"></textarea>
+        </div class="form-control">
+        <button type="submit" class="btn">Thêm sản phẩm</button>
+      </form>
+    </main>
+  </body>
+</html>
