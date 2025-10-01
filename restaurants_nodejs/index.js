@@ -6,6 +6,7 @@ const morgan = require("morgan");
 
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
+const errorsController = require("./controllers/errors");
 
 const app = express();
 
@@ -17,11 +18,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/admin", adminRoutes);
 app.use(shopRoutes);
-
-app.use((req, res, next) => {
-  res
-    .status(404)
-    .render("404", { pageTitle: "Trang không tồn tại", path: null });
-});
+app.use(errorsController.get404Page);
 
 app.listen(8000);
