@@ -1,15 +1,19 @@
 const db = require("../util/database");
 
 module.exports = class Product {
-  constructor(id, name, imageUrl, description, price) {
+  constructor(id, name, description, price) {
     this.id = id;
     this.name = name;
-    this.imageUrl = imageUrl;
     this.description = description;
     this.price = price;
   }
 
-  save() {}
+  save() {
+    return db.execute(
+      "INSERT INTO products (name, price, description) VALUES (?, ?, ?)",
+      [this.name, this.price, this.description]
+    );
+  }
 
   deleteById(id) {}
 
