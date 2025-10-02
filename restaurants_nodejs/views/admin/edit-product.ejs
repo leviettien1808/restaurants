@@ -5,6 +5,7 @@
     <%- include("../includes/admin-navigation.ejs") %>
     <main>
       <form class="product-form" action="/admin/edit-product" method="post">
+        <input type="hidden" name="id" value="<%= product.id %>" />
         <div class="form-control">
           <label for="name">Tên sản phẩm</label>
           <input type="text" id="name" name="name" value="<%= product.name %>" required autocomplete="off" />

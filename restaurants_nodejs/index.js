@@ -7,6 +7,7 @@ const morgan = require("morgan");
 const adminRoutes = require("./routes/admin");
 const shopRoutes = require("./routes/shop");
 const errorsController = require("./controllers/errors");
+const sequelize = require("./util/database");
 
 const app = express();
 
@@ -20,4 +21,11 @@ app.use("/admin", adminRoutes);
 app.use(shopRoutes);
 app.use(errorsController.get404Page);
 
-app.listen(8000);
+sequelize
+  .sync()
+  .then((result) => {
+    app.listen(8000);
+  })
+  .catch((err) => {
+    console.log("🚀 ~ err:", err);
+  });
