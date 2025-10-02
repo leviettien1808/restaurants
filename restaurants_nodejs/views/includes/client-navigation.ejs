@@ -1,4 +1,6 @@
+<div class="backdrop"></div>
 <header class="main-header">
+  <button id="side-menu-toggle" class="btn" type="button">Menu</button>
   <nav class="main-header__nav">
     <ul class="main-header__item-list">
       <li class="main-header__item">
@@ -14,3 +16,18 @@
     </ul>
   </nav>
 </header>
+
+<nav class="mobile-nav">
+  <ul class="mobile-nav__item-list">
+    <li class="mobile-nav__item">
+      <a href="/" class="<%= path === "/" ? "active" : "" %>"
+        >Danh sách đơn</a
+      >
+    </li>
+    <li class="mobile-nav__item">
+      <a href="/" class="<%= path === "/order" ? "active" : "" %>"
+        >Tạo đơn mới</a
+      >
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../includes/head.ejs") %>
+  <body>
+    <%- include("../includes/admin-navigation.ejs") %>
+    <main>
+      <form class="product-form" action="/admin/edit-product" method="post">
+        <div class="form-control">
+          <label for="name">Tên sản phẩm</label>
+          <input type="text" id="name" name="name" value="<%= product.name %>" required autocomplete="off" />
+        </div>
+        <div class="form-control">
+          <label for="price">Giá</label>
+          <input type="number" id="price" name="price" value="<%= product.price %>" required />
+        </div>
+        <div class="form-control">
+          <label for="description">Mô tả</label>
+          <textarea id="description" name="description" rows="5"><%= product.description %></textarea>
+        </div class="form-control">
+        <button type="submit" class="btn">Cập nhật</button>
+      </form>
+    </main>
+  </body>
+</html>
