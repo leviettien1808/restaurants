@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include("../includes/head.ejs") %>
+  <body>
+    <%- include("../includes/client-navigation.ejs") %>
+    <main>
+      <% if (products.length > 0) { %>
+      <form action="/add-order" method="post">
+        <ul class="cart__item-list">
+          <!-- Begin: Table number -->
+          <li class="cart__item">
+            <p>Bàn số</p>
+            <div class="cart__actions">
+              <button class="btn decrease-quantity-product" type="button">
+                -
+              </button>
+              <input type="text" name="table_number" class="quantity-product" value="0" placeholder="0" readonly></input>
+              <button class="btn increase-quantity-product" type="button">
+                +
+              </button>
+            </div>
+          </li>
+          <!-- End: Table number -->
+          <!-- Begin: Products -->
+          <li class="cart__item">
+            <p>Tên món</p>
+            <p>Số lượng</p>
+          </li>
+          <% products.forEach(product => { %>
+          <li class="cart__item">
+            <p><%= product.name %></p>
+            <div class="cart__actions">
+              <button class="btn decrease-quantity-product" type="button">
+                -
+              </button>
+              <input type="text" name="<%= product.id %>" class="quantity-product" value="0" placeholder="0" readonly></input>
+              <button class="btn increase-quantity-product" type="button">
+                +
+              </button>
+            </div>
+            <!-- <form action="/cart-delete-item" method="POST">
+            <input type="hidden" value="" name="productId" />
+            <button class="btn danger" type="submit">Delete</button>
+          </form> -->
+          </li>
+          <% }) %>
+          <!-- End: Products -->
+        </ul>
+        <div class="cart__item-list">
+          <button type="submit" class="btn">Tạo đơn mới</button>
+        </div>
+      </form>
+      <% } else { %>
+      <h2>Đang cập nhật danh sách sản phẩm</h2>
+      <% } %>
+    </main>
+  </body>
+</html>
