@@ -8,7 +8,8 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  Product.create(req.body)
+  req.user
+    .createProduct(req.body)
     .then((result) => {
       res.redirect("/admin/products");
     })
@@ -18,7 +19,8 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.getProducts = (req, res, next) => {
-  Product.findAll()
+  req.user
+    .getProducts()
     .then((products) => {
       res.render("admin/product-list", {
         products,
@@ -31,8 +33,10 @@ exports.getProducts = (req, res, next) => {
 
 exports.getEditProduct = (req, res, next) => {
   const productId = req.params.productId;
-  Product.findByPk(productId)
-    .then((product) => {
+  req.user
+    .getProducts({ where: { id: productId } })
+    .then((products) => {
+      const product = products[0];
       res.render("admin/edit-product", {
         product,
         pageTitle: "Chỉnh sửa sản phẩm",
